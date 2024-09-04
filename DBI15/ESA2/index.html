@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DBI15 ESA-2</title> 
+  </head>
+  <body>
+	<h1>DBI15 Einsendeaufgabe 2</h1>
+	<p>Technologie: HTML und JavaScript</p>
+
+  	<p id="actual_time">00:00:00</p>  
+	<button id="btn_get_time">Aktuelle Uhrzeit</button>
+	<script>
+	   document.getElementById("btn_get_time").addEventListener("click", fc_get_time);
+	   function fc_get_time() {
+	       var now = new Date();
+	       h = leadingZero(now.getHours());
+	       m = leadingZero(now.getMinutes());
+	       s = leadingZero(now.getSeconds());
+	       var expression = h + ":" + m + ":" + s; 
+	       console.log("fc_get_time()=" + expression);
+	       document.getElementById("actual_time").innerHTML = "<p>"+expression+"</p>";		  
+	   };
+
+  	   function leadingZero(num) {
+		if (num < 10) {
+		   num = '0' + num;
+		} ;
+    		return num;
+  	   };			
+	</script>
+	<hr>
+
+        <p id="actual_counter">Zähler=0</p>  
+	<button id="btn_inc_counter">Zähler erhöhen</button>
+	<script>
+	   var counter = 0;
+	   document.getElementById("btn_inc_counter").addEventListener("click", fc_inc_counter);
+           function fc_inc_counter() {
+	      counter += 1;
+	      console.log("fc_inc_counter()=" + counter);
+	      document.getElementById("actual_counter").innerHTML = "<p>Zähler="+counter+"</p>";		  
+	   };
+	</script>
+        <hr>
+	  
+  </body>
+</html>
