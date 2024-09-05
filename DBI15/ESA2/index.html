@@ -8,12 +8,7 @@
 	<h1>DBI15 Einsendeaufgabe 2</h1>
 	<p>Technologie: HTML und JavaScript</p>
 
-	<script>
-		var source = new EventSource('fibs.php');
-		source.onmessage = function(e) {
-		document.body.innerHTML += e.data + '<br>';
-		}; // innerHTML = HTML-Wert des Knotens
-	</script>
+
 
 
 	  
@@ -49,6 +44,32 @@
 	      counter += 1;
 	      console.log("fc_inc_counter()=" + counter);
 	      document.getElementById("actual_counter").innerHTML = "<p>Zähler="+counter+"</p>";		  
+	   };
+	</script>
+       
+	<hr>
+	<button id="btn_connect_db">Connect</button>
+	<script>
+	   document.getElementById("btn_connect_db").addEventListener("click", fc_connect_db);
+           function fc_connect_db() {
+		//db.js
+		
+		const mongoose = require('mongoose')
+		
+		const url = 'mongodb+srv://DBadmin:jaNKC4QHB7zizjMm@cluster0.vw19m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+		
+		const connectionParams={
+		    useNewUrlParser: true,
+		    useCreateIndex: true,
+		    useUnifiedTopology: true 
+		}
+		mongoose.connect(url,connectionParams)
+		    .then( () => {
+		        console.log('Connected to database ')
+		    })
+		    .catch( (err) => {
+		        console.error(`Error connecting to the database. \n${err}`);
+		    })
 	   };
 	</script>
         <hr>
