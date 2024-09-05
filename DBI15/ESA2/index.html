@@ -8,6 +8,15 @@
 	<h1>DBI15 Einsendeaufgabe 2</h1>
 	<p>Technologie: HTML und JavaScript</p>
 
+	<script>
+		var source = new EventSource('fibs.php');
+		source.onmessage = function(e) {
+		document.body.innerHTML += e.data + '<br>';
+		}; // innerHTML = HTML-Wert des Knotens
+	</script>
+
+
+	  
   	<p id="actual_time">00:00:00</p>  
 	<button id="btn_get_time">Aktuelle Uhrzeit</button>
 	<script>
