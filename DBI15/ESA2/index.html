@@ -53,23 +53,19 @@
 	   document.getElementById("btn_connect_db").addEventListener("click", fc_connect_db);
            function fc_connect_db() {
 		//db.js
-		
-		const mongoose = require('mongoose')
-		
-		const url = 'mongodb+srv://DBadmin:jaNKC4QHB7zizjMm@cluster0.vw19m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-		
-		const connectionParams={
-		    useNewUrlParser: true,
-		    useCreateIndex: true,
-		    useUnifiedTopology: true 
-		}
-		mongoose.connect(url,connectionParams)
+
+                import mongoose from 'mongoose'
+
+                mongoose.connect("mongodb+srv://DBadmin:jaNKC4QHB7zizjMm@cluster0.vw19m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 		    .then( () => {
 		        console.log('Connected to database ')
 		    })
 		    .catch( (err) => {
 		        console.error(`Error connecting to the database. \n${err}`);
-		    })
+		    });
+		   
+		
+
 	   };
 	</script>
         <hr>
